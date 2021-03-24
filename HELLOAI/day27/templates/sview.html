@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>sview</title>
+<script src='js/jquery-3.5.1.js'></script>
+<script type="text/javascript">
+function fn_submit(){
+	var radio = $('[name=radio]:checked').val();
+	for (var i=0; i<radio.length; i++) {
+		console.log(radio[i].val());
+	}
+// 	$.ajax({
+// 	  url:"sview_ins.ajax",
+// 		data : param,
+// 		dataType : "json",
+// 		type : "post",
+// 		async : false,
+// 		success : function(data) {
+// 			if(data.msg == "ok"){
+// 				alert("ok")
+// 			} else{
+// 				alert("아이디 혹은 비밀번호가 맞지 않습니다.")
+// 			}
+// 		}
+//   	});
+	
+}
+
+</script>
+</head>
+
+<body>
+
+<form action='sview_ins.jsp'>
+
+{{survery_id}}<br/>
+{{st_mobile}}<br/>
+<br/><br/>
+{% for s in list %}
+
+	{{s.s_seq}}. {{s.question}}<br/>
+	<input type="radio" value="1"/>{{s.a1}}<br/>
+	<input type="radio" value="2"/>{{s.a2}}<br/>
+	<input type="radio" value="3"/>{{s.a3}}<br/>
+	<input type="radio" value="4"/>{{s.a4}}<br/>
+	<br/><br/>
+
+{% endfor %}
+	
+<input type="submit" value="제출하기" onclick="fn_submit()"/>
+</form>
+<br/>
+all right reserved by aimaker.kr
+</body>
+</html>
+
+
+
+
+
+
+
+
+
