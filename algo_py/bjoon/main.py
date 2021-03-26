@@ -40,17 +40,31 @@ import numpy as np
 # ########
 # r=range(9999);print(*sorted({*r}-{n+sum(map(int,str(n)))for n in r}))
 
-cnt = input()
-num = list(map(int, input().split()))
-nump = np.array(num)
-M = max(nump)
-nnump = nump/M*100
-avgs = sum(nnump)/nump.size
-print(avgs)
+# cnt = input()
+# num = list(map(int, input().split()))
+# nump = np.array(num)
+# M = max(nump)
+# nnump = nump/M*100
+# aveg = sum(nnump)/nump.size
+# print(aveg)
+# 
+# cnt = int(input())
+# num = list(map(int, input().split()))
+# 
+# M = max(num)
+# result = 0
+# 
+# for i in num:
+#     result += i / M * 100
+# ans = result /cnt    
+# print(ans)
 
-
-
-
+c = int(input()) #테스트 케이스 수
+result = 0 # 평균
+list1 = list(map(int, input().split()))#학생 수[0] , 학생들의 점수[1]~[끝]
+for i in range(1,list1[0]+1):
+    result += round(list1[i]/list1[0],3)
+    print(result)
 
 
 
