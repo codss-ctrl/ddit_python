@@ -1,0 +1,67 @@
+{% extends 'layout.html' %}
+<meta charset="UTF-8">
+{% block content %}
+<link rel="stylesheet" href="css/common.css">
+
+<script type="text/javascript">
+	function setData(b_seq, display_yn, title, content, attach_path, attach_file, hit, in_date, in_user_id, up_date, up_user_id) {
+		$("#b_seq").val(b_seq);
+		$("#display_yn").val(display_yn);
+		$("#title").val(title);
+		$("#content").val(content);
+		$("#attach_path").val(attach_path);
+		$("#attach_file").val(attach_file);
+		$("#hit").val(hit);
+		$("#in_date").val(in_date);
+		$("#in_user_id").val(in_user_id);
+		$("#up_date").val(up_date);
+		$("#up_user_id").val(up_user_id);
+	}
+	
+	function fn_add() {
+	
+		var display_yn = $("#display_yn").val();
+		var title = $("#title").val();
+		var content = $("#content").val();
+		var attach_path = $("#attach_path").val();
+		var attach_file = $("#attach_file").val();
+		var in_date = $("#in_date").val();
+		var in_user_id = $("#in_user_id").val();
+		var up_date = $("#up_date").val();
+		var up_user_id = $("#up_user_id").val();
+
+
+		var param = "";
+		param += "dummy=" + Math.random();
+		param += "&display_yn=" + display_yn
+		param += "&title=" + title
+		param += "&content=" + content
+		param += "&a1=" + a1
+		param += "&a2=" + a2
+		param += "&in_date=" + in_date
+		param += "&in_user_id=" + in_user_id
+		param += "&up_date=" + up_date
+		param += "&up_user_id=" + up_user_id
+			
+	}
+
+</script>
+
+
+
+
+
+<table border="1">
+	<tr>
+		<td>제목</td>
+		<td><input type="text" id="title"></td>
+	</tr>
+	<tr>
+		<td>내용</td>
+		<textarea id="content"></textarea>
+	</tr>
+</table>
+<input type="button" value="수정완료" onclick="fn_upd()"> 
+
+{% endblock %}
+
