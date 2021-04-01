@@ -2,6 +2,23 @@
 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Test">
+	<select id="select_list">
+		SELECT 
+			b_seq,
+			display_yn,
+			title,
+			content,
+			attach_path,
+			attach_file,
+			hit,
+			in_date, 
+			in_user_id, 
+			up_date, 
+			up_user_id,
+			(select user_name from suser u where u.user_id = n.in_user_id) in_user_name
+ 		from 
+ 			snotice n
+	</select>
 	<select id="select">
 		SELECT 
 			b_seq,
@@ -14,9 +31,10 @@
 			in_date, 
 			in_user_id, 
 			up_date, 
-			up_user_id
+			up_user_id,
+			(select user_name from suser u where u.user_id = n.in_user_id) in_user_name
  		from 
- 			snotice 
+ 			snotice n
  		where 
  			b_seq = :1
 	</select>
@@ -37,34 +55,34 @@
 		) 
 		values
 		(
+			notice_seq.nextval,
 			:1, 
 			:2, 
 			:3, 
 			:4, 
 			:5,
-			:6,
-			:7, 
+			'0',
 			to_char(sysdate, 'YYYYMMDD.HH24MISS'), 
-			:8, 
+			:6,  
 			to_char(sysdate, 'YYYYMMDD.HH24MISS'), 
-			:9
+			:7
 		)
 	</update>
 	<update id="update">
 		update 
 			snotice 
 		set 
-			title			    =:1, 
-			content				=:2, 
-			attach_path			=:3, 
-			attach_file			=:4, 
-			hit					=:5, 
+			display_yn			=:1,	
+			title			    =:2, 
+			content				=:3,  
+			attach_path			=:4,
+			attach_file			=:5, 
 			up_date				= to_char(sysdate, 'YYYYMMDD.HH24MISS'), 
 			up_user_id			=:6 
 		where 
 			b_seq=:7 
 	</update>
 	<update id="delete">
-		delete from snotice where b_seq = :7
+		delete from snotice where b_seq = :1
 	</update>
 </mapper>

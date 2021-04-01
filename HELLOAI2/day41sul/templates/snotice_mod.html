@@ -1,67 +1,74 @@
 {% extends 'layout.html' %}
 <meta charset="UTF-8">
 {% block content %}
-<link rel="stylesheet" href="css/common.css">
+
+
 
 <script type="text/javascript">
-	function setData(b_seq, display_yn, title, content, attach_path, attach_file, hit, in_date, in_user_id, up_date, up_user_id) {
-		$("#b_seq").val(b_seq);
-		$("#display_yn").val(display_yn);
-		$("#title").val(title);
-		$("#content").val(content);
-		$("#attach_path").val(attach_path);
-		$("#attach_file").val(attach_file);
-		$("#hit").val(hit);
-		$("#in_date").val(in_date);
-		$("#in_user_id").val(in_user_id);
-		$("#up_date").val(up_date);
-		$("#up_user_id").val(up_user_id);
+	$(document).ready(function(){
+
+	});
+
+	function fn_list(){
+		location.href="snotice_list"
 	}
-	
-	function fn_add() {
-	
-		var display_yn = $("#display_yn").val();
-		var title = $("#title").val();
-		var content = $("#content").val();
-		var attach_path = $("#attach_path").val();
-		var attach_file = $("#attach_file").val();
-		var in_date = $("#in_date").val();
-		var in_user_id = $("#in_user_id").val();
-		var up_date = $("#up_date").val();
-		var up_user_id = $("#up_user_id").val();
-
-
-		var param = "";
-		param += "dummy=" + Math.random();
-		param += "&display_yn=" + display_yn
-		param += "&title=" + title
-		param += "&content=" + content
-		param += "&a1=" + a1
-		param += "&a2=" + a2
-		param += "&in_date=" + in_date
-		param += "&in_user_id=" + in_user_id
-		param += "&up_date=" + up_date
-		param += "&up_user_id=" + up_user_id
-			
+	function fn_mod(){
+		document.frm.submit();
 	}
 
+
+	
 </script>
+<form name="frm" action="snotice_modact" method="post" >
+<input type="hidden" name="b_seq" value="{{notice.b_seq}}">
+<table border="1px">
 
-
-
-
-
-<table border="1">
 	<tr>
-		<td>제목</td>
-		<td><input type="text" id="title"></td>
+		<th>공지번호</th>		<td>{{notice.b_seq}}</td>
 	</tr>
 	<tr>
-		<td>내용</td>
-		<textarea id="content"></textarea>
+		<th>제목</th>			
+		<td>
+			<input type="text" name="title" value="{{notice.title}}">
+		</td>
 	</tr>
+	<tr>
+		<th>표시여부</th>		
+		<td>
+			<input type="text" name="display_yn" value="{{notice.display_yn}}">
+		</td>
+	</tr>
+	<tr>
+		<th>내용</th>			
+		<td>
+			<textarea name="content" rows="9" cols="20">{{notice.content}}</textarea>
+		</td>
+	</tr>
+	<tr>
+		<th>첨부파일</th>			
+		<td>{{notice.attach_file}}</td>
+	</tr>	
+	<tr>
+		<th>조회수</th>			
+		<td>{{notice.hit}}</td>
+	</tr>
+	<tr>
+		<th>작성자</th>			
+		<td>{{notice.in_user_name}}</td>
+	</tr>
+	<tr>
+		<th>작성일자</th>			
+		<td>{{notice.in_date}}</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<input type="button" onclick="fn_list()" value="목록" /> 
+			<input type="button" onclick="fn_mod()" value="수정완료" /> 
+		</td>			
+
+	</tr>
+
 </table>
-<input type="button" value="수정완료" onclick="fn_upd()"> 
-
+</form>
 {% endblock %}
 

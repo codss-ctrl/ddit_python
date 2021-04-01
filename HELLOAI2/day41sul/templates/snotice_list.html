@@ -4,81 +4,42 @@
 <link rel="stylesheet" href="css/common.css">
 
 <script type="text/javascript">
-// function setData(b_seq, display_yn, title,content,attach_path, attach_file, hit,in_date, in_user_id, up_date, up_user_id) {
-// 		$("#b_seq").val(b_seq);
-// 		$("#display_yn").val(display_yn);
-// 		$("#title").val(title);
-// 		$("#content").val(content);
-// 		$("#attach_path").val(attach_path);
-// 		$("#attach_file").val(attach_file);
-// 		$("#hit").val(hit);
-// 		$("#in_date").val(in_date);
-// 		$("#in_user_id").val(in_user_id);
-// 		$("#up_date").val(up_date);
-// 		$("#up_user_id").val(up_user_id);
-// 	}
-	
-// 	function fn_add() {
 
-// 		var b_seq = $("#b_seq").val();
-// 		var display_yn = $("#display_yn").val();
-// 		var title = $("#title").val();
-// 		var content = $("#content").val();
-// 		var attach_path = $("#attach_path").val();
-// 		var attach_file = $("#attach_file").val();
-// 		var in_date = $("#in_date").val();
-// 		var in_user_id = $("#in_user_id").val();
-// 		var up_date = $("#up_date").val();
-// 		var up_user_id = $("#up_user_id").val();
-
-// 		var param = "";
-// 		param += "dummy=" + Math.random();
-// 		param += "&b_seq=" + b_seq
-// 		param += "&display_yn=" + display_yn
-// 		param += "&title=" + title
-// 		param += "&content=" + content
-// 		param += "&attach_path=" + attach_path
-// 		param += "&attach_file=" + attach_file
-// 		param += "&in_date=" + in_date
-// 		param += "&in_user_id=" + in_user_id
-// 		param += "&up_date=" + up_date
-// 		param += "&up_user_id=" + up_user_id
-
-// 	}	
+	$(document).ready(function(){
 		
-
+	});
+	
+	function fn_detail(b_seq){
+		location.href = "snotice_detail?b_seq="+b_seq
+	}
+	function fn_add(){
+		location.href = "snotice_add"
+	}
 	
 </script>
-
-
-
-
-<table border="1">
-<tr>
-<td class="uupp">
-	<table  class="scrolltbody">
-		<tr>
-
-			<td>공지번호</td>
-			<td>제목</td>
-			<td>작성자</td>
-			<td>작성날짜</td>
-		</tr>
-		{% for s in list %}
-		<tr>
-			<td><a href="javascript:setData('{{s.b_seq}}','{{s.display_yn}}','{{s.title}}','{{s.content}}','{{s.attach_path}}','{{s.attach_file}}','{{s.hit}}','{{s.in_date}}','{{s.in_user_id}}','{{s.up_date}}','{{s.up_user_id}}')">{{s.b_seq}}</a></td>
-			<td>{{s.title}}</td>
-			<td>{{s.in_user_id}}</td>
-			<td>{{s.in_date}}</td>
-		</tr>
-		{% endfor %}
-	</table>
-</td>
-
 <input type="button" value="글쓰기" onclick="fn_add()"> 
 
 
+<table  class="scrolltbody">
+	<tr>
+
+		<td>공지번호</td>
+		<td>제목</td>
+		<td>작성자</td>
+		<td>작성일시</td>
+	</tr>
+		{% for s in list %}
+	<tr>
+		<td>{{s.b_seq}}</td>
+		<td><a href="javascript:fn_detail('{{s.b_seq}}')">{{s.title}}</a></td>
+		<td>{{s.in_user_name}}</td>
+		<td>{{s.in_date}}</td>
+	</tr>
+	{% endfor %}
 </table>
+
+
+
 
 {% endblock %}
 

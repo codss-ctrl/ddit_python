@@ -5,8 +5,9 @@ from day41sul.mydao_suser import MyDaoSuser
 from day41sul.mydao_survey import MyDaoSurvey
 from day41sul.mydao_sdetail import MyDaoSdetail
 from day41sul.mydao_starget import MyDaoStarget
-from day41sul.mymail import MyMail
+from day41sul.mydao_snotice import MyDaoSnotice
 from day41sul.mydao_sresult import MyDaoSresult
+from day41sul.mymail import MyMail
 from day41sul.mysms import MySms
 from werkzeug.utils import secure_filename
 from openpyxl import load_workbook
@@ -575,9 +576,104 @@ def sresult_del_ajax():
 
 #####################################################################
 
+@app.route("/snotice_list")
+def snotice_list_render():
+    flag_ses, user_id = getSession()
+    if not flag_ses:
+        return redirect("login.html")    
+    
+    list = MyDaoSnotice().myselect_list()
+    return render_template('snotice_list.html', list=list,enumerate=enumerate)
 
+@app.route("/snotice_detail")
+def snotice_detail_render():
+    b_seq = request.args.get('b_seq')
+    flag_ses, user_id = getSession()
+    if not flag_ses:
+        return redirect("login.html")    
+    
+    obj = MyDaoSnotice().myselect(b_seq)
+    return render_template('snotice_detail.html', notice=obj, enumerate=enumerate)
+
+@app.route("/snotice_mod")
+def snotice_mod_render():
+    b_seq = request.args.get('b_seq')
+    flag_ses, user_id = getSession()
+    if not flag_ses:
+        return redirect("login.html")    
+    
+    obj = MyDaoSnotice().myselect(b_seq)
+    return render_template('snotice_mod.html', notice=obj, enumerate=enumerate)
+
+@app.route("/snotice_modact", methods=['POST'])
+def snotice_modact_render():
+    b_seq       = request.form["b_seq"]
+    display_yn  = request.form["display_yn"]
+    title       = request.form["title"]
+    content     = request.form["content"]
+#     attach_path = request.form["attach_path"]
+#     attach_file = request.form["attach_file"]
+    
+    
+    flag_ses, user_id = getSession()
+    if not flag_ses:
+        return redirect("login.html")    
+    
+    cnt = MyDaoSnotice().myupdate(b_seq, display_yn, title, content, '', '', None, None, user_id, None, user_id)
+    return render_template('snotice_modact.html', cnt=cnt, b_seq=b_seq, enumerate=enumerate)
+
+@app.route("/snotice_delact")
+def snotice_delact_render():
+    b_seq       = request.args.get('b_seq')
+    
+    flag_ses, user_id = getSession()
+    if not flag_ses:
+        return redirect("login.html")    
+    
+    cnt = MyDaoSnotice().mydelete(b_seq)
+    return render_template('snotice_delact.html', cnt=cnt, enumerate=enumerate)
+
+@app.route("/snotice_add")
+def snotice_add_render():
+    flag_ses, user_id = getSession()
+    if not flag_ses:
+        return redirect("login.html")    
+    
+    return render_template('snotice_add.html', enumerate=enumerate)
+
+@app.route("/snotice_addact", methods=['POST'])
+def snotice_addact_render():
+    display_yn  = request.form["display_yn"]
+    title       = request.form["title"]
+    content     = request.form["content"]
+    
+    
+    flag_ses, user_id = getSession()
+    if not flag_ses:
+        return redirect("login.html")    
+    
+    cnt = MyDaoSnotice().myinsert('', display_yn, title, content, '', '', '', '', user_id, '', user_id)
+    return render_template('snotice_addact.html', cnt=cnt, enumerate=enumerate)
+
+
+#####################################################################
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0")
-
-
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    

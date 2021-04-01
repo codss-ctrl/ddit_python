@@ -11812,3 +11812,2049 @@ SELECT USER_ID,
 from suser
 where USER_ID=:1
   and PWD=:2
+2021-04-01 13:39:19,582 - MyLog - DEBUG - 
+insert into snotice (b_seq, display_yn, title, content, attach_path, attach_file, hit, in_date, in_user_id, up_date, up_user_id)
+values (:1, :2, :3, :4, :5, :6, :7, to_char(sysdate, 'YYYYMMDD.HH24MISS'), :8, to_char(sysdate, 'YYYYMMDD.HH24MISS'), :9)
+2021-04-01 13:40:35,367 - MyLog - DEBUG - 
+update snotice
+set title =:1,
+    content =:2,
+    attach_path =:3,
+    attach_file =:4,
+    hit =:5,
+    up_date = to_char(sysdate, 'YYYYMMDD.HH24MISS'),
+    up_user_id =:6
+where b_seq=:7
+2021-04-01 13:41:23,808 - MyLog - DEBUG - 
+update snotice
+set title =:1,
+    content =:2,
+    attach_path =:3,
+    attach_file =:4,
+    hit =:5,
+    up_date = to_char(sysdate, 'YYYYMMDD.HH24MISS'),
+    up_user_id =:6
+where b_seq=:7
+2021-04-01 13:41:37,960 - MyLog - DEBUG - 
+update snotice
+set title =:1,
+    content =:2,
+    attach_path =:3,
+    attach_file =:4,
+    hit =:5,
+    up_date = to_char(sysdate, 'YYYYMMDD.HH24MISS'),
+    up_user_id =:6
+where b_seq=:7
+2021-04-01 13:41:40,067 - MyLog - DEBUG - 
+update snotice
+set title =:1,
+    content =:2,
+    attach_path =:3,
+    attach_file =:4,
+    hit =:5,
+    up_date = to_char(sysdate, 'YYYYMMDD.HH24MISS'),
+    up_user_id =:6
+where b_seq=:7
+2021-04-01 13:42:41,129 - MyLog - DEBUG - 
+delete
+from snotice
+where b_seq = :7
+2021-04-01 13:55:40,125 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+2021-04-01 13:56:05,465 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+2021-04-01 14:01:20,077 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 14:01:31,377 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 14:14:18,314 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+2021-04-01 14:14:34,940 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+2021-04-01 14:14:35,103 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+2021-04-01 14:14:35,218 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+2021-04-01 14:14:40,677 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+2021-04-01 14:35:46,729 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+2021-04-01 14:36:29,538 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+2021-04-01 14:46:03,112 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+2021-04-01 14:46:46,780 - MyLog - DEBUG - 
+SELECT USER_ID,
+       PWD,
+       USER_NAME,
+       MOBILE,
+       EMAIL,
+       BIRTH,
+       IN_DATE,
+       IN_USER_ID,
+       UP_DATE,
+       UP_USER_ID
+from suser
+where USER_ID=:1
+  and PWD=:2
+2021-04-01 14:46:47,952 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+2021-04-01 14:47:48,463 - MyLog - DEBUG - 
+SELECT USER_ID,
+       PWD,
+       USER_NAME,
+       MOBILE,
+       EMAIL,
+       BIRTH,
+       IN_DATE,
+       IN_USER_ID,
+       UP_DATE,
+       UP_USER_ID
+from suser
+where USER_ID=:1
+  and PWD=:2
+2021-04-01 14:47:49,415 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+2021-04-01 14:49:23,501 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 14:53:53,823 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 14:53:56,755 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 14:54:00,895 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+2021-04-01 14:54:02,474 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 14:54:05,976 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+2021-04-01 14:54:07,490 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 15:02:21,349 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 15:02:34,442 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+2021-04-01 15:02:35,649 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 15:02:44,276 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 15:02:45,263 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 15:03:50,727 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 15:03:51,643 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+2021-04-01 15:03:52,821 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 15:04:05,617 - MyLog - DEBUG - 
+SELECT USER_ID,
+       PWD,
+       USER_NAME,
+       MOBILE,
+       EMAIL,
+       BIRTH,
+       IN_DATE,
+       IN_USER_ID,
+       UP_DATE,
+       UP_USER_ID
+from suser
+where USER_ID=:1
+  and PWD=:2
+2021-04-01 15:04:06,536 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+2021-04-01 15:04:07,799 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 15:04:12,982 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 15:04:48,215 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 15:04:56,510 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 15:05:39,588 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 15:06:11,631 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 15:06:24,286 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+2021-04-01 15:06:25,491 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 15:07:39,095 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+2021-04-01 15:07:40,162 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 15:07:51,488 - MyLog - DEBUG - 
+SELECT USER_ID,
+       PWD,
+       USER_NAME,
+       MOBILE,
+       EMAIL,
+       BIRTH,
+       IN_DATE,
+       IN_USER_ID,
+       UP_DATE,
+       UP_USER_ID
+from suser
+where USER_ID=:1
+  and PWD=:2
+2021-04-01 15:07:52,499 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+2021-04-01 15:07:53,450 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 15:09:27,786 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+2021-04-01 15:09:29,216 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 15:09:32,527 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 15:10:28,727 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 15:33:50,750 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 15:35:41,179 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 15:37:35,994 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 15:37:38,828 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+2021-04-01 15:38:02,590 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+2021-04-01 15:38:03,682 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 15:38:04,481 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+2021-04-01 15:38:06,300 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 15:38:33,035 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 15:39:57,715 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 15:40:27,267 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 15:40:45,354 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 15:52:23,472 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+2021-04-01 15:52:24,946 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 15:54:03,846 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+2021-04-01 15:54:05,228 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 16:00:31,664 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+2021-04-01 16:00:32,920 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 16:01:14,707 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 16:01:25,283 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 16:03:44,143 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 16:03:45,823 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 16:05:34,832 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 16:05:35,373 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 16:07:10,313 - MyLog - DEBUG - 
+SELECT USER_ID,
+       PWD,
+       USER_NAME,
+       MOBILE,
+       EMAIL,
+       BIRTH,
+       IN_DATE,
+       IN_USER_ID,
+       UP_DATE,
+       UP_USER_ID
+from suser
+where USER_ID=:1
+  and PWD=:2
+2021-04-01 16:07:11,062 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+2021-04-01 16:07:12,160 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 16:07:13,930 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 16:08:19,301 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 16:08:20,009 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+2021-04-01 16:08:21,128 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 16:08:22,411 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 16:12:19,115 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+2021-04-01 16:12:20,213 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 16:14:48,068 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 16:15:44,704 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+2021-04-01 16:15:46,422 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 16:16:21,610 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 16:16:23,074 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+2021-04-01 16:16:24,132 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 16:16:26,335 - MyLog - DEBUG - 
+delete
+from snotice
+where b_seq = :1
+2021-04-01 16:16:27,469 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+2021-04-01 16:19:57,911 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+2021-04-01 16:20:00,296 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 16:20:01,366 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 16:20:09,514 - MyLog - DEBUG - 
+update snotice
+set display_yn =:1,
+    title =:2,
+    content =:3,
+    attach_path =:4,
+    attach_file =:5,
+    up_date = to_char(sysdate, 'YYYYMMDD.HH24MISS'),
+    up_user_id =:6
+where b_seq=:7
+2021-04-01 16:20:13,915 - MyLog - DEBUG - 
+update snotice
+set display_yn =:1,
+    title =:2,
+    content =:3,
+    attach_path =:4,
+    attach_file =:5,
+    up_date = to_char(sysdate, 'YYYYMMDD.HH24MISS'),
+    up_user_id =:6
+where b_seq=:7
+2021-04-01 16:21:24,193 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+2021-04-01 16:21:25,451 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 16:21:26,495 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 16:21:30,250 - MyLog - DEBUG - 
+update snotice
+set display_yn =:1,
+    title =:2,
+    content =:3,
+    attach_path =:4,
+    attach_file =:5,
+    up_date = to_char(sysdate, 'YYYYMMDD.HH24MISS'),
+    up_user_id =:6
+where b_seq=:7
+2021-04-01 16:21:33,740 - MyLog - DEBUG - 
+update snotice
+set display_yn =:1,
+    title =:2,
+    content =:3,
+    attach_path =:4,
+    attach_file =:5,
+    up_date = to_char(sysdate, 'YYYYMMDD.HH24MISS'),
+    up_user_id =:6
+where b_seq=:7
+2021-04-01 16:22:29,535 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 16:22:31,258 - MyLog - DEBUG - 
+update snotice
+set display_yn =:1,
+    title =:2,
+    content =:3,
+    attach_path =:4,
+    attach_file =:5,
+    up_date = to_char(sysdate, 'YYYYMMDD.HH24MISS'),
+    up_user_id =:6
+where b_seq=:7
+2021-04-01 16:22:37,313 - MyLog - DEBUG - 
+update snotice
+set display_yn =:1,
+    title =:2,
+    content =:3,
+    attach_path =:4,
+    attach_file =:5,
+    up_date = to_char(sysdate, 'YYYYMMDD.HH24MISS'),
+    up_user_id =:6
+where b_seq=:7
+2021-04-01 16:29:56,248 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+2021-04-01 16:29:57,399 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 16:29:58,665 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 16:30:41,880 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 16:30:44,682 - MyLog - DEBUG - 
+update snotice
+set display_yn =:1,
+    title =:2,
+    content =:3,
+    attach_path =:4,
+    attach_file =:5,
+    up_date = to_char(sysdate, 'YYYYMMDD.HH24MISS'),
+    up_user_id =:6
+where b_seq=:7
+2021-04-01 16:30:45,882 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 16:35:50,062 - MyLog - DEBUG - 
+delete
+from snotice
+where b_seq = :1
+2021-04-01 16:35:50,998 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+2021-04-01 16:37:38,216 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+2021-04-01 16:56:40,475 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+2021-04-01 16:57:42,467 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+where b_seq = :1
+2021-04-01 16:57:44,270 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+2021-04-01 16:58:52,218 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
+2021-04-01 16:59:00,066 - MyLog - DEBUG - 
+insert into snotice (b_seq, display_yn, title, content, attach_path, attach_file, hit, in_date, in_user_id, up_date, up_user_id)
+values (notice_seq.nextval, :1, :2, :3, :4, :5, '0', to_char(sysdate, 'YYYYMMDD.HH24MISS'), :6, to_char(sysdate, 'YYYYMMDD.HH24MISS'), :7)
+2021-04-01 16:59:01,105 - MyLog - DEBUG - 
+SELECT b_seq,
+       display_yn,
+       title,
+       content,
+       attach_path,
+       attach_file,
+       hit,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select user_name
+   from suser u
+   where u.user_id = n.in_user_id) in_user_name
+from snotice n
