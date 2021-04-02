@@ -1,6 +1,5 @@
 @charset "UTF-8";
 
-
 .scrolltbody {
     display: block;
     width: 400px;
@@ -21,6 +20,3 @@
 .scrolltbody td:last-child { width: calc( 100px - 19px ); }
 
 
-.uupp{
-	vertical-align: top;
-}

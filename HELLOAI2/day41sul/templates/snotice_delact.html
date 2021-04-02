@@ -1,22 +1,19 @@
 {% extends 'layout.html' %}
 <meta charset="UTF-8">
 {% block content %}
-<link rel="stylesheet" href="css/common.css">
 
 <script type="text/javascript">
-
-	var cnt  = '{{cnt}}'
-	if(cnt=='1'){
+	var cnt = '{{cnt}}';
+	if(cnt == '1'){
 		alert("정상적으로 삭제되었습니다.");
 		location.href = "snotice_list"
-	}else{
-		alert("삭제 도중 문제가 생겼습니다.");
+	} else {
+		alert("삭제도중 오류가 생겼습니다.");
 		history.back();
 	}
+
 	
 </script>
-
-
 
 {% endblock %}
 

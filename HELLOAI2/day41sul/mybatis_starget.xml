@@ -16,7 +16,6 @@
 		where
 			survey_id = :1
 	</select>
-	
 	<update id="insert">
 		insert into starget 
 		(

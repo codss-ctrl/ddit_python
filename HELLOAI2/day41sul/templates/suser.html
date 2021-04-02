@@ -2,7 +2,8 @@
 <meta charset="UTF-8">
 {% block content %}
 
-<link rel="stylesheet" href="css/common.css">
+
+
 <script type="text/javascript">
 
 	$(document).ready(function(){
@@ -169,28 +170,31 @@
 
 <table border="1">
 <tr>
-<td class="uupp">
-	<table class="scrolltbody">
+<td class="uupp" width="600px" >
+	<table  class="scrolltbody">
+		<thead>
 			<tr>
-				<td>아이디</td>
-				<td>이름</td>
-				<td>휴대전화</td>
-				<td>이메일</td>
+				<th>아이디</th>
+				<th>이름</th>
+				<th>휴대전화</th>
+				<th>이메일</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for s in list %}
+			<tr>
+				<td><a href="javascript:setData('{{s.user_id}}','{{s.pwd}}','{{s.user_name}}','{{s.mobile}}','{{s.email}}','{{s.birth}}','{{s.in_date}}','{{s.in_user_id}}','{{s.up_date}}','{{s.up_user_id}}')">{{s.user_id}}</a></td>
+				<td>{{s.user_name}}</td>
+				<td>{{s.mobile}}</td>
+				<td>{{s.email}}</td>
 	
 			</tr>
-			{% for s in list %}
-				<tr>
-					<td><a href="javascript:setData('{{s.user_id}}','{{s.pwd}}','{{s.user_name}}','{{s.mobile}}','{{s.email}}','{{s.birth}}','{{s.in_date}}','{{s.in_user_id}}','{{s.up_date}}','{{s.up_user_id}}')">{{s.user_id}}</a></td>
-					<td>{{s.user_name}}</td>
-					<td>{{s.mobile}}</td>
-					<td>{{s.email}}</td>
-		
-				</tr>
 			{% endfor %}
+		</tbody>
 	</table>
 </td>
-<td class="uupp">
-	<table border="1" >
+<td class="uupp" >
+	<table border="1">
 		<tr>
 			<td>아이디</td>
 			<td><input type="text" id="user_id"></td>

@@ -1,19 +1,24 @@
-import os
-from flask import Flask, render_template, jsonify, request, session, escape, redirect,send_file
+from flask import Flask, render_template, jsonify, request, session, escape, redirect, send_file
 import cx_Oracle
 from day41sul.mydao_suser import MyDaoSuser
 from day41sul.mydao_survey import MyDaoSurvey
 from day41sul.mydao_sdetail import MyDaoSdetail
 from day41sul.mydao_starget import MyDaoStarget
-from day41sul.mydao_snotice import MyDaoSnotice
 from day41sul.mydao_sresult import MyDaoSresult
+from day41sul.mydao_snotice import MyDaoSnotice
+
 from day41sul.mymail import MyMail
 from day41sul.mysms import MySms
 from werkzeug.utils import secure_filename
+import os
 from openpyxl import load_workbook
+from datetime import datetime
+
+DIR_UPLOAD = "D:/workspace_python/HELLOAI2/day41sul/static/upload"
 
 app = Flask(__name__, static_url_path="", static_folder="static")
 app.secret_key = "ABCDEFG"
+
 
 
 def getSession():
@@ -368,44 +373,46 @@ def starget_render():
     list = MyDaoStarget().myselect(survey_id)
     return render_template('starget.html', list=list,survey_id=survey_id)
 
+
 @app.route("/starget_form")
 def starget_form():
     survey_id = request.args.get('survey_id')
     flag_ses, user_id = getSession()
     if not flag_ses:
         return redirect("login.html")    
-    
-    return render_template('starget_form.html', survey_id=survey_id)
+    return render_template('starget_form.html',survey_id=survey_id)
 
-@app.route('/starget_excel',methods=['POST'])
-def starget_excel(): 
+
+@app.route("/starget_excel", methods=['POST'])
+def starget_excel():
     survey_id = request.form["survey_id"]
     flag_ses, user_id = getSession()
-    
     if not flag_ses:
-        return redirect("login.html")    
+        return redirect("login.html")  
     
     str_path_upload = "D:/workspace_python/HELLOAI2/day41sul/static/upload/"
-    file = request.files['file']
+    file = request.files['file']        
     filename = secure_filename(file.filename)
-    file.save(str_path_upload+ filename)
-
-    load_wb = load_workbook(str_path_upload+ filename, data_only=True)
+    file.save(str_path_upload+filename)
+     
+    load_wb = load_workbook(str_path_upload+filename, data_only=True)
     load_ws = load_wb['Sheet1']
-    
+
     idx = 2
     cnt = 0
     while True:
         name_temp = load_ws.cell(idx, 1).value
-        mobile_temp = load_ws.cell(idx, 2).value
-        if name_temp == None : 
-            break
+        mobile_temp = load_ws.cell(idx, 2).value 
+        if name_temp == None:
+            break 
         print(name_temp,mobile_temp)
         mobile_temp = mobile_temp.replace("-","")
         cnt += MyDaoStarget().myinsert(survey_id, mobile_temp, "n", "", user_id, "", user_id)
         idx+=1
         
-    return render_template("starget_excel.html", cnt=cnt)    
+    return render_template('starget_excel.html',cnt=cnt)
+
+
 
 @app.route('/starget_sms.ajax', methods=['POST'])
 def starget_sms_ajax():
@@ -420,6 +427,7 @@ def starget_sms_ajax():
         url = "http://192.168.41.3:5000/sview?survey_id="+survey_id+"&st_mobile="+i['st_mobile']
         MySms().mysendSms(mobile, url)
 
+
     msg = ""
     if len(list) > 0:
         msg = "ok"
@@ -427,6 +435,11 @@ def starget_sms_ajax():
         msg = "ng"
 
     return jsonify(msg = msg)
+
+
+
+
+
 
 @app.route('/starget_ins.ajax', methods=['POST'])
 def starget_ins_ajax():
@@ -437,6 +450,8 @@ def starget_ins_ajax():
     in_user_id = str(escape(session["user_id"]))
     up_date = request.form["up_date"]
     up_user_id = str(escape(session["user_id"]))
+
+
     cnt = MyDaoStarget().myinsert(survey_id, st_mobile, complete_yn, in_date, in_user_id, up_date, up_user_id)
     
     msg = ""
@@ -446,6 +461,7 @@ def starget_ins_ajax():
         msg = "ng"
 
     return jsonify(msg = msg)
+
 
 @app.route('/starget_upd.ajax', methods=['POST'])
 def starget_upd_ajax():
@@ -576,14 +592,16 @@ def sresult_del_ajax():
 
 #####################################################################
 
+
 @app.route("/snotice_list")
 def snotice_list_render():
     flag_ses, user_id = getSession()
     if not flag_ses:
         return redirect("login.html")    
-    
+
     list = MyDaoSnotice().myselect_list()
     return render_template('snotice_list.html', list=list,enumerate=enumerate)
+
 
 @app.route("/snotice_detail")
 def snotice_detail_render():
@@ -591,9 +609,13 @@ def snotice_detail_render():
     flag_ses, user_id = getSession()
     if not flag_ses:
         return redirect("login.html")    
-    
+
+    cnt = MyDaoSnotice().myhit(b_seq)
+    print(cnt)
     obj = MyDaoSnotice().myselect(b_seq)
+    
     return render_template('snotice_detail.html', notice=obj, enumerate=enumerate)
+
 
 @app.route("/snotice_mod")
 def snotice_mod_render():
@@ -601,79 +623,144 @@ def snotice_mod_render():
     flag_ses, user_id = getSession()
     if not flag_ses:
         return redirect("login.html")    
-    
+
     obj = MyDaoSnotice().myselect(b_seq)
-    return render_template('snotice_mod.html', notice=obj, enumerate=enumerate)
+    return render_template('snotice_mod.html', notice=obj,enumerate=enumerate)
 
 @app.route("/snotice_modact", methods=['POST'])
 def snotice_modact_render():
-    b_seq       = request.form["b_seq"]
-    display_yn  = request.form["display_yn"]
-    title       = request.form["title"]
-    content     = request.form["content"]
-#     attach_path = request.form["attach_path"]
-#     attach_file = request.form["attach_file"]
-    
-    
     flag_ses, user_id = getSession()
     if not flag_ses:
-        return redirect("login.html")    
-    
-    cnt = MyDaoSnotice().myupdate(b_seq, display_yn, title, content, '', '', None, None, user_id, None, user_id)
-    return render_template('snotice_modact.html', cnt=cnt, b_seq=b_seq, enumerate=enumerate)
+        return redirect("login.html")
 
-@app.route("/snotice_delact")
-def snotice_delact_render():
-    b_seq       = request.args.get('b_seq')
+    b_seq           = request.form["b_seq"]
+    display_yn      = request.form["display_yn"]
+    title           = request.form["title"]
+    content         = request.form["content"]
+    attach_file_old = request.form["attach_file"]
+    attach_path_old = request.form["attach_path"]
     
-    flag_ses, user_id = getSession()
-    if not flag_ses:
-        return redirect("login.html")    
+    if attach_file_old == 'None' :
+        attach_file_old = ""
+        attach_path_old = ""
     
-    cnt = MyDaoSnotice().mydelete(b_seq)
-    return render_template('snotice_delact.html', cnt=cnt, enumerate=enumerate)
+    file = request.files['file']        
+    attach_file_temp = secure_filename(file.filename)
+    attach_path_temp = str(datetime.today().strftime("%Y%m%d%H%M%S")) +"_"+ attach_file_temp  
+    file.save(os.path.join(DIR_UPLOAD, attach_path_temp))
+    
+    attach_path = ""
+    attach_file = ""
+    if file :
+        print("__attach_path_temp",attach_path_temp)
+        print("__attach_file_temp",attach_file_temp)
+        attach_path = attach_path_temp 
+        attach_file = attach_file_temp
+        print("file O")
+    else:
+        attach_path = attach_path_old 
+        attach_file = attach_file_old
+        print("file X")
+    
+    cnt = MyDaoSnotice().myupdate(b_seq, display_yn, title, content, attach_path, attach_file, None, None, user_id, None, user_id)
+    
+#     obj = MyDaoSnotice().myupdate(b_seq, display_yn, title, content, attach_path, attach_file, None, None, user_id, None, user_id)
+    return render_template('snotice_modact.html', cnt=cnt,b_seq=b_seq,enumerate=enumerate)
+
 
 @app.route("/snotice_add")
 def snotice_add_render():
     flag_ses, user_id = getSession()
     if not flag_ses:
         return redirect("login.html")    
-    
-    return render_template('snotice_add.html', enumerate=enumerate)
+    return render_template('snotice_add.html',enumerate=enumerate)
+
+
 
 @app.route("/snotice_addact", methods=['POST'])
 def snotice_addact_render():
+
+    flag_ses, user_id = getSession()
+    if not flag_ses:
+        return redirect("login.html")   
+    
     display_yn  = request.form["display_yn"]
     title       = request.form["title"]
     content     = request.form["content"]
     
+    file = request.files['file']        
+    attach_file_temp = secure_filename(file.filename)
+    attach_path_temp = str(datetime.today().strftime("%Y%m%d%H%M%S")) +"_"+ attach_file_temp  
+    file.save(os.path.join(DIR_UPLOAD, attach_path_temp))
     
+    attach_path = ""
+    attach_file = ""
+    if file :
+        attach_path = attach_path_temp 
+        attach_file = attach_file_temp
+        print("file O")
+    else:
+        print("file X")
+
+    
+
+    cnt = MyDaoSnotice().myinsert('', display_yn, title, content, attach_path, attach_file, '', '', user_id, '', user_id)
+
+    return render_template('snotice_addact.html', cnt=cnt,enumerate=enumerate)
+
+
+
+@app.route("/snotice_delact")
+def snotice_delact_render():
+    b_seq = request.args.get('b_seq')
+
     flag_ses, user_id = getSession()
     if not flag_ses:
         return redirect("login.html")    
+    cnt = MyDaoSnotice().mydelete(b_seq)
+
+    return render_template('snotice_delact.html', cnt=cnt,enumerate=enumerate)
+
+
+@app.route('/snotice_del.ajax', methods=['POST'])
+def snotice_del_ajax():
+    b_seq = request.form["b_seq"]
+
+    flag_ses, user_id = getSession()
+    if not flag_ses:
+        return redirect("login.html")    
+    cnt = MyDaoSnotice().mydel_img(b_seq,user_id)
+
+    if cnt == 1:
+        msg = "ok"
+    else:
+        msg = "ng"
+    return jsonify(msg = msg)
+
+
+
+
+
+@app.route('/download')
+def download():
+    attach_path = request.args.get('attach_path')
+    attach_file = request.args.get('attach_file')
     
-    cnt = MyDaoSnotice().myinsert('', display_yn, title, content, '', '', '', '', user_id, '', user_id)
-    return render_template('snotice_addact.html', cnt=cnt, enumerate=enumerate)
+    file_name = DIR_UPLOAD+"/"+attach_path
+    return send_file(file_name,
+                     mimetype='image/png',
+                     attachment_filename=attach_file,
+                     as_attachment=True)
+
+
+
+
+
 
 
 #####################################################################
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0")
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+

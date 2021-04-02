@@ -19,7 +19,7 @@
 
 	
 </script>
-<form name="frm" action="snotice_addact" method="post" >
+<form name="frm" action="snotice_addact" method="post" enctype="multipart/form-data">
 <table border="1px">
 
 	<tr>
@@ -45,20 +45,11 @@
 	</tr>
 	<tr>
 		<th>첨부파일</th>			
-		<td></td>
+		<td>
+		<input type="file" name="file" /> 
+		</td>
 	</tr>	
-	<tr>
-		<th>조회수</th>			
-		<td></td>
-	</tr>
-	<tr>
-		<th>작성자</th>			
-		<td></td>
-	</tr>
-	<tr>
-		<th>작성일자</th>			
-		<td></td>
-	</tr>
+
 	<tr>
 		<td colspan="2">
 			<input type="button" onclick="fn_list()" value="목록" /> 

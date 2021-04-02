@@ -1,45 +1,52 @@
 {% extends 'layout.html' %}
 <meta charset="UTF-8">
 {% block content %}
-<link rel="stylesheet" href="css/common.css">
+
+
 
 <script type="text/javascript">
-
 	$(document).ready(function(){
-		
+
 	});
 	
 	function fn_detail(b_seq){
-		location.href = "snotice_detail?b_seq="+b_seq
-	}
-	function fn_add(){
-		location.href = "snotice_add"
+		location.href="snotice_detail?b_seq="+b_seq;
 	}
 	
+	function fn_add(){
+		location.href="snotice_add";
+	}
+
 </script>
-<input type="button" value="글쓰기" onclick="fn_add()"> 
-
-
+<input type="button" value="글쓰기" onclick="fn_add()" />
 <table  class="scrolltbody">
-	<tr>
-
-		<td>공지번호</td>
-		<td>제목</td>
-		<td>작성자</td>
-		<td>작성일시</td>
-	</tr>
+	<thead>
+		<tr>
+			<th>공지번호</th>
+			<th>제목</th>
+			<th>작성자</th>
+			<th>작성일시</th>
+			<th>파일</th>
+		</tr>
+	</thead>
+	<tbody>
 		{% for s in list %}
-	<tr>
-		<td>{{s.b_seq}}</td>
-		<td><a href="javascript:fn_detail('{{s.b_seq}}')">{{s.title}}</a></td>
-		<td>{{s.in_user_name}}</td>
-		<td>{{s.in_date}}</td>
-	</tr>
-	{% endfor %}
+		<tr>
+			<td>{{s.b_seq}}</td>
+			<td><a href="javascript:fn_detail('{{s.b_seq}}')">{{s.title}}</a></td>
+			<td>{{s.in_user_name}}</td>
+			<td>{{s.in_date}}</td>
+			<td>
+			{% if s.attach_file %}
+			O
+			{% else %}
+			X
+			{% endif %}
+			</td>
+		</tr>
+		{% endfor %}
+	</tbody>
 </table>
-
-
-
 
 {% endblock %}
 

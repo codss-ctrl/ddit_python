@@ -1,7 +1,6 @@
 {% extends 'layout.html' %}
 <meta charset="UTF-8">
 {% block content %}
-<link rel="stylesheet" href="css/common.css">
 
 <script type="text/javascript">
 	function setData(survey_id, s_seq, question, a1, a2, a3, a4, in_date, in_user_id, up_date, up_user_id) {
@@ -163,19 +162,21 @@
 
 <table border="1">
 <tr>
-<td class="uupp">
+<td class="uupp" width="600px" >
 	<table  class="scrolltbody">
-		<tr>
-
-			<td>설문번호</td>
-			<td>질문</td>
-			<td>1번</td>
-			<td>2번</td>
-			<td>3번</td>
-			<td>4번</td>
-			<td>입력날짜</td>
-			<td>입력자</td>
-		</tr>
+		<thead>
+			<tr>
+				<th>설문번호</th>
+				<th>질문</th>
+				<th>1번</th>
+				<th>2번</th>
+				<th>3번</th>
+				<th>4번</th>
+				<th>입력날짜</th>
+				<th>입력자</th>
+			</tr>
+		</thead>
+		<tbody>
 		{% for s in list %}
 		<tr>
 			<td><a href="javascript:setData('{{s.survey_id}}','{{s.s_seq}}','{{s.question}}','{{s.a1}}','{{s.a2}}','{{s.a3}}','{{s.a4}}','{{s.in_date}}','{{s.in_user_id}}','{{s.up_date}}','{{s.up_user_id}}')">{{s.s_seq}}</a></td>
@@ -188,9 +189,10 @@
 			<td>{{s.in_user_name}}</td>
 		</tr>
 		{% endfor %}
+		</tbody>
 	</table>
 </td>
-<td class="uupp">
+<td>
 	<table border="1">
 		<tr>
 			<td>설문아이디</td>

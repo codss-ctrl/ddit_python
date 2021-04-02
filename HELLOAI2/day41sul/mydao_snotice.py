@@ -26,6 +26,14 @@ class MyDaoSnotice:
             obj = {'b_seq':record[0],'display_yn':record[1],'title':record[2],'content':record[3],'attach_path':record[4],'attach_file':record[5], 'hit':record[6], 'in_date':record[7],'in_user_id':record[8],'up_date':record[9],'up_user_id':record[10],'in_user_name':record[11]}
         return obj
     
+    def myhit(self,b_seq):
+        sql = mybatis_mapper2sql.get_child_statement(self.mapper, "up_hit")
+        MyLog().getLogger().debug(sql)
+        self.cs.execute(sql, (b_seq,) )
+        self.conn.commit()
+        cnt = self.cs.rowcount
+        return cnt
+
     
     def myinsert(self,b_seq, display_yn, title, content, attach_path, attach_file, hit, in_date, in_user_id, up_date, up_user_id):
         sql = mybatis_mapper2sql.get_child_statement(self.mapper, "insert")
@@ -40,6 +48,14 @@ class MyDaoSnotice:
         sql = mybatis_mapper2sql.get_child_statement(self.mapper, "update")        
         MyLog().getLogger().debug(sql)
         self.cs.execute(sql, (display_yn, title, content, attach_path, attach_file, up_user_id, b_seq))
+        self.conn.commit()
+        cnt = self.cs.rowcount
+        return cnt
+    
+    def mydel_img(self,b_seq,user_id):
+        sql = mybatis_mapper2sql.get_child_statement(self.mapper, "del_img")  
+        MyLog().getLogger().debug(sql)
+        self.cs.execute(sql, (user_id,b_seq))
         self.conn.commit()
         cnt = self.cs.rowcount
         return cnt
@@ -60,8 +76,7 @@ class MyDaoSnotice:
         
 if __name__ == "__main__":
     dao = MyDaoSnotice()
-    obj = dao.myselect('1')
-    print(obj)
+
     
     
     

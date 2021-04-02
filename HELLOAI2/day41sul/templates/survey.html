@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 <meta charset="UTF-8">
 {% block content %}
-<link rel="stylesheet" href="css/common.css">
+
 <script type="text/javascript">
 	$(document).ready(function(){
 		$("#deadline").datepicker({
@@ -198,20 +198,23 @@
 
 <table border="1">
 <tr>
-<td class="uupp">
+<td class="uupp" width="600px" >
 	<table  class="scrolltbody">
-		<tr>
-			<td>설문아이디</td>
-			<td>설문타이틀</td>
-			<td>설문인원수</td>
-			<td>마감일자</td>
-			<td>문항</td>
-			<td>설문보기</td>
-			<td>문자발송</td>
-			<td>피설문자</td>
-			<td>응답</td>
-
-		</tr>
+		<thead>
+			<tr>
+				<th>설문아이디</th>
+				<th>설문타이틀</th>
+				<th>설문인원수</th>
+				<th>마감일자</th>
+				<th>문항</th>
+				<th>설문보기</th>
+				<th>문자발송</th>
+				<th>피설문자</th>
+				<th>응답</th>
+	
+			</tr>
+		</thead>
+		<tbody>
 		{% for s in list %}
 		<tr>
 			<td><a href="javascript:setData('{{s.survey_id}}','{{s.title}}','{{s.content}}','{{s.interview_cnt}}','{{s.deadline}}','{{s.in_date}}','{{s.in_user_id}}','{{s.up_date}}','{{s.up_user_id}}')">{{s.survey_id}}</a></td>
@@ -226,11 +229,12 @@
 
 		</tr>
 		{% endfor %}
+		</tbody>
 	</table>
 </td>
 
 
-<td class="uupp">
+<td>
 	<table border="1">
 		<tr>
 			<td>설문아이디</td>

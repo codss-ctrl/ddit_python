@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 <meta charset="UTF-8">
 {% block content %}
-<link rel="stylesheet" href="css/common.css">
+
 <script type="text/javascript">
 	function setData(survey_id, st_mobile, complete_yn, in_date, in_user_id, up_date, up_user_id) {
 		$("#survey_id").val(survey_id);
@@ -134,29 +134,33 @@
 			}
 		});
 	}
+	
 	var survey_id = '{{survey_id}}';
 	var mywin;
 	function fn_xls(){
-		mywin=window.open("starget_form?survey_id="+survey_id, "엑셀일괄입력", "height=300,width=300,resizable=yes");  
-	 	 
-	}	
+		mywin=window.open("starget_form?survey_id="+survey_id, "엑셀일괄입력", "height=100,width=200,resizable=yes");  
+	}
+	
 </script>
 
 
 
 <table border="1">
 <tr>
-<td class="uupp">
+<td class="uupp" width="600px" >
 	<table  class="scrolltbody">
-		<tr>
-			<td>survey_id</td>
-			<td>st_mobile</td>
-			<td>complete_yn</td>
-			<td>in_date</td>
-			<td>in_user_id</td>
-			<td>up_date</td>
-			<td>up_user_id</td>
-		</tr>
+		<thead>
+			<tr>
+				<th>survey_id</th>
+				<th>st_mobile</th>
+				<th>complete_yn</th>
+				<th>in_date</th>
+				<th>in_user_id</th>
+				<th>up_date</th>
+				<th>up_user_id</th>
+			</tr>
+		</thead>
+		<tbody>
 		{% for s in list %}
 		<tr>
 			<td><a href="javascript:setData('{{s.survey_id}}','{{s.st_mobile}}','{{s.complete_yn}}','{{s.in_date}}','{{s.in_user_id}}','{{s.up_date}}','{{s.up_user_id}}')">{{s.survey_id}}</a></td>
@@ -168,9 +172,10 @@
 			<td>{{s.up_user_id}}</td>
 		</tr>
 		{% endfor %}
+		</tbody>
 	</table>
 </td>
-<td class="uupp">
+<td>
 	<table border="1">
 		<tr>
 			<td>survey_id</td>
